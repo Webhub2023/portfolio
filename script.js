@@ -63,4 +63,3 @@ ScrollReveal({
   
  });
 
- console.log("hello world");
