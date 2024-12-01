@@ -1,13 +1,12 @@
  /* ==============  sticky navbar ================= */
  let menuIcon = document.querySelector('#menu-icon');
- let navbar  = document.querySelector('.navbar');
+let navbar = document.querySelector('.navbar');
 
- menuIcon.onclick = () => {
-   
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-
- };
+// Toggle classes on click
+menuIcon.onclick = () => {
+  menuIcon.classList.toggle('bx-x');  // Toggle the 'bx-x' class to change icon
+  navbar.classList.toggle('active');  // Toggle the 'active' class to show/hide the navbar
+};
 
 
 let sections = document.querySelectorAll('section');
@@ -16,7 +15,7 @@ let navLinks = document.querySelectorAll('header nav a');
 window.onscroll = () => {
     sections.forEach(sec => {
         let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
+        let offset = sec.offsetTop - 130;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
 
@@ -27,21 +26,20 @@ window.onscroll = () => {
              });
         };
 
-    });  
-
+   });  
      /* ==============  sticky navbar ================= */
-     let header = document.querySelector('header');
+    let header = document.querySelector('header');
 
-    header.classList.toggle('*sticky', window.scrollY > 100);
+    header.classList.toggle('*sticky', window.scrollY> 100);
 
       /* ==============  sticky navbar ================= */
-    menuIcon.classList.remove('square-xmark');
-    navbar.classList.remove('active');
+    menuIcon.classList.remove('bx-x');
+     navbar.classList.remove('active');
  };
-/* ==============  Scrollreveal================= */
+/* ============== square-xmark Scrollreveal================= */
 
 ScrollReveal({ 
-   reset: true,
+  //  reset: true,
     distance: '80px',
      duration: 2000,
     delay: 200
