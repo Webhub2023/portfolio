@@ -3,11 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Md Noor Alam - Frontend Developer Portfolio. Specializing in HTML, CSS, JavaScript, and responsive web design.">
+    <meta name="keywords" content="frontend developer, web developer, HTML, CSS, JavaScript, responsive design, portfolio">
+    <title>Md Noor Alam - Frontend Developer Portfolio</title>
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Critical CSS - Inline the most important styles -->
+    <style>
+        /* Critical above-the-fold styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        :root {
+            --bg--color: #1f242d;
+            --second-bd--color: #323946;
+            --text-color: #fff;
+            --main--color: #0ef;
+        }
+        body {
+            background: var(--bg--color);
+            color: var(--text-color);
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg--color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .lazy.loaded {
+            opacity: 1;
+        }
+    </style>
+    
     <!-- Box icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- custom css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.rtl.min.css" integrity="sha512-V7mESobi1wvYdh9ghD/BDbehOyEDUwB4c4IVp97uL0QSka0OXjBrFrQVAHii6PNt/Zc1LwX6ISWhgw1jbxQqGg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <!-- Remove unused Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.rtl.min.css" integrity="sha512-V7mESobi1wvYdh9ghD/BDbehOyEDUwB4c4IVp97uL0QSka0OXjBrFrQVAHii6PNt/Zc1LwX6ISWhgw1jbxQqGg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- custom css - Load after critical CSS -->
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -24,9 +85,10 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
-            <a href="#contact">ContectUs</a>
+            <a href="#contact">Contact Us</a>
         </nav>
     </header>
+    
     <!-- Home section design -->
     <section class="home" id="home">
          <div class="home-content">
@@ -34,173 +96,152 @@
             <h1>Md Noor Alam</h1>
             <h3>And I'm a <span class="multiple-text"></span></h3>
             <p>
-             Front-end Developer. I have good knowledge of Web Designing.
-             I know how to create  responsive websites
+             Frontend Developer. I have good knowledge of Web Designing.
+             I know how to create responsive websites
             </p>
             <div class="social-media">
-                <a href="#9973804272"><i class='bx bxl-whatsapp'></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100034831160348"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-twitter'></i></a>
-                <a href="https://github.com/Webhub2023/"><i class='bx bxl-github'></i></a> 
-                <a href="https://www.instagram.com/mdnoor2339/"><i class='bx bxl-instagram-alt' ></i></a>
-                
+                <a href="tel:+919973804272" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100034831160348" aria-label="Facebook" target="_blank" rel="noopener"><i class='bx bxl-facebook'></i></a>
+                <a href="#" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="https://github.com/Webhub2023/" aria-label="GitHub" target="_blank" rel="noopener"><i class='bx bxl-github'></i></a> 
+                <a href="https://www.instagram.com/mdnoor2339/" aria-label="Instagram" target="_blank" rel="noopener"><i class='bx bxl-instagram-alt' ></i></a>
             </div>
-            <a href="img/CResum.pdf" class="btn">Download CV</a>
+            <a href="img/CResum.pdf" class="btn" download>Download CV</a>
          </div>
          <div class="home-img">
-            <img src="img/noor.jpg" alt="">
+            <img src="img/noor.jpg" alt="Md Noor Alam - Frontend Developer" width="350" height="350" loading="eager">
          </div>
     </section>
 
     <!-- about section design -->
      <section class="about" id="about">
       <div class="about-img">
-        <img src="img/noora.jpeg" alt="">
+        <img data-src="img/noora.jpeg" alt="Md Noor Alam - About" class="lazy" width="370" height="400" loading="lazy">
       </div>
       <div class="about-content">
         <h2 class="heading">About <span>Me</span></h2>
         <h3>Frontend Developer!</h3>
-        <p>I am a Front end Developer. I have excellent knowledge of HTML, HTML5, CSS, CSS3, JavaScript & Bootstrap.
+        <p>I am a Frontend Developer. I have excellent knowledge of HTML, HTML5, CSS, CSS3, JavaScript & Bootstrap.
             Throughout my career, I have honed my expertise in front-end development, leveraging my proficiency in HTML, CSS, and JavaScript to bring design concepts to life. I take pride in my ability to translate complex UI/UX designs into responsive and visually appealing websites and web applications. My commitment to delivering user-centric solutions is at the forefront of my work, and I am well-versed in creating accessible and performance-optimized digital experiences.
        </p>
-       <a href="#" class="btn">Read more</a>
+       <a href="#services" class="btn">Read more</a>
       </div>
      </section>
 
      <!-- services selection design -->
-     <selection name="" class="services" id="services" >
-        
+     <section class="services" id="services">
         <h2 class="heading">Our <span>Services</span></h2>
          <div class="services-container">
             <div class="services-box">
                 <i class='bx bx-code-alt'></i>
                 <h3>Web Development</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci assumenda architecto ratione quod dolorum pariatur similique, quibusdam sapiente quos sint.</p>
-                <a href="#" class="btn">Read more</a>
+                <p>Professional web development services including responsive design, modern frameworks, and performance optimization to create fast, user-friendly websites.</p>
+                <a href="#portfolio" class="btn">Read more</a>
             </div>
             <div class="services-box">
                 <i class='bx bxs-paint'></i>
                 <h3>Graphics Design</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci assumenda architecto ratione quod dolorum pariatur similique, quibusdam sapiente quos sint.</p>
-                <a href="#" class="btn">Read more</a>
+                <p>Creative graphic design solutions for web and print media, including UI/UX design, branding, and visual identity development.</p>
+                <a href="#portfolio" class="btn">Read more</a>
             </div>
             <div class="services-box">
                <i class='bx bx-bar-chart-alt'></i>
                 <h3>Digital Marketing</h3>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci assumenda architecto ratione quod dolorum pariatur similique, quibusdam sapiente quos sint.</p>
-                <a href="#" class="btn">Read more</a>
+                <p>Comprehensive digital marketing strategies including SEO optimization, social media management, and online presence enhancement.</p>
+                <a href="#contact" class="btn">Read more</a>
             </div>
         </div>
-     </selection>
+     </section>
 
      <!-- portfolio section design -->
      <section class="portfolio" id="portfolio">
-        <h2 class="heading">Letest <span>Project</span></h2>
+        <h2 class="heading">Latest <span>Projects</span></h2>
 
         <div class="portfolio-container">
             <div class="portfplio-box">
-                <img src="img/software1.jpg" alt="">
+                <img data-src="img/software1.jpg" alt="Web Design Project 1" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
                     <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <p>Modern responsive website design with clean UI and optimized performance for better user experience.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfplio-box">
-                <img src="img/portfolio.jpg" alt="">
+                <img data-src="img/portfolio.jpg" alt="Portfolio Website" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>Portfolio Website</h4>
+                    <p>Professional portfolio website showcasing skills and projects with modern design and smooth animations.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfplio-box">
-                <img src="img/software3.jpg" alt="">
+                <img data-src="img/software3.jpg" alt="Web Application" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>Web Application</h4>
+                    <p>Interactive web application with dynamic functionality and responsive design for optimal user engagement.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfplio-box">
-                <img src="img/software4.jpg" alt="">
+                <img data-src="img/software4.jpg" alt="E-commerce Website" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>E-commerce Design</h4>
+                    <p>Modern e-commerce website design with user-friendly interface and optimized checkout process.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfplio-box">
-                <img src="img/software3.jpg" alt="">
+                <img data-src="img/software5.jpg" alt="Business Website" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>Business Website</h4>
+                    <p>Professional business website with corporate design and enhanced functionality for brand representation.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfplio-box">
-                <img src="img/software2.jpg" alt="">
+                <img data-src="img/software2.jpg" alt="Responsive Design" class="lazy" width="300" height="200" loading="lazy">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfplio-box">
-                <img src="img/software5.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfplio-box">
-                <img src="img/softwere.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique totam accusamus vitae minima velit fugiat!</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>Responsive Design</h4>
+                    <p>Fully responsive website design that works seamlessly across all devices and screen sizes.</p>
+                    <a href="#" aria-label="View Project"><i class='bx bx-link-external'></i></a>
                 </div>
             </div>
         </div>
      </section>
 
-     <!-- Ontect section design-->
+     <!-- Contact section design-->
      <section class="contact" id="contact">
         <div class="contect_form">
-        <h2 class="heading">Contects<span>Me</span></h2>
-        <form action="#">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form action="#" method="post">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Full Name" name="name" required>
+                <input type="email" placeholder="Email Address" name="email" required>
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="tel" placeholder="Mobile Number" name="phone">
+                <input type="text" placeholder="Email Subject" name="subject" required>
             </div>
-            <textarea name="" id="" cols="30" rows="6" placeholder="Your Message"></textarea>
-            <input type="submit" name="" value="Send Message" class="btn">
+            <textarea name="message" id="message" cols="30" rows="6" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
         </form>
     </div>
      </section>
 
      <!-- footer design -->
-
      <footer class="footer">
         <div class="footer-text">
-            <p>Copyright &copy; 2023 by Codebhal | All Rights Reserved.</p>
+            <p>Copyright &copy; 2023 by Md Noor Alam | All Rights Reserved.</p>
         </div>
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" aria-label="Back to top"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
      </footer>
-<!-- scrollrevear -->
-<script src="https://unpkg.com/scrollreveal"></script>
 
-<!-- typed js -->
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-  <!-- custom js -->
-  <script src="script.js"></script> 
+<!-- Load non-critical scripts at the end -->
+<script src="https://unpkg.com/scrollreveal" defer></script>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
+<script src="script.js" defer></script>
     
 </body>
 </html>
